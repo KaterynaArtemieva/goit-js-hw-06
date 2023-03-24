@@ -26,6 +26,7 @@ function onCreateBtnClick() {
 function onDestroyBtnClick() {
   const clearBox = "";
   boxesEl.innerHTML = clearBox;
+  controlsEl.value = "";
 }
 
 function getRandomHexColor() {
