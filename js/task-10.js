@@ -14,12 +14,23 @@ function onControlsElBlur() {
 }
 
 function onCreateBtnClick() {
-  for (let i = 1, j = 30; i <= inputValue; i += 1, j += 10) {
-    const boxItem = document.createElement("div");
-    boxItem.style.width = j + "px";
-    boxItem.style.height = j + "px";
-    boxItem.style.backgroundColor = getRandomHexColor();
-    boxesEl.append(boxItem);
+  if (boxesEl.childElementCount === 0) {
+    for (let i = 1, j = 30; i <= inputValue; i += 1, j += 10) {
+      const boxItem = document.createElement("div");
+      boxItem.style.width = j + "px";
+      boxItem.style.height = j + "px";
+      boxItem.style.backgroundColor = getRandomHexColor();
+      boxesEl.append(boxItem);
+    }
+  } else {
+    const newWidth = boxesEl.lastElementChild.clientWidth;
+    for (let i = 1, j = newWidth; i <= inputValue; i += 1, j += 10) {
+      const boxItem = document.createElement("div");
+      boxItem.style.width = j + 10 + "px";
+      boxItem.style.height = j + 10 + "px";
+      boxItem.style.backgroundColor = getRandomHexColor();
+      boxesEl.append(boxItem);
+    }
   }
 }
 
